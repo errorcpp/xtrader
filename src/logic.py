@@ -1,3 +1,6 @@
 # coding: utf8
 
-import
+import xtrader.api as xtrader_api
+
+
+print(666)

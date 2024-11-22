@@ -1,11 +1,8 @@
 # coding: utf8
 
-import xml.etree
 import xml.etree.ElementTree as XML_ETREE
 import ccxt
 import xmltodict
-import os
-import path_util
 
 def load_proxy_cfg(cfg_dir):
     '''
@@ -42,4 +39,7 @@ def build_okx_exchange(proxy_cfg, okx_cfg):
     okx_exchange = ccxt.okx()
     #okx_exchange.http_proxy = proxy_cfg.get("proxy_cfg", {}).get("http_proxy", "http://127.0.0.1:7890")
     okx_exchange.https_proxy = proxy_cfg.get("proxy_cfg", {}).get("https_proxy", "http://127.0.0.1:7890")
+    okx_exchange.apiKey = okx_cfg["okx"]["api_cfg"]["api_key"]
+    okx_exchange.secret = okx_cfg["okx"]["api_cfg"]["api_token"]
+    okx_exchange.password = okx_cfg["okx"]["api_cfg"]["api_sec"]
     return okx_exchange
