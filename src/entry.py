@@ -103,7 +103,7 @@ def create_order(exchange: ccxt.Exchange):
             price=1.1,    # 价格
             params={
                 "timeInForce": "GTC",  # 一直有效直到手动取消
-                "positionSide": "both", # BOTH LONG SHORT
+                "positionSide": "SHORT", # BOTH LONG SHORT
                 "hedged": True,
                 #'dualSidePosition': True, 无效
             }
